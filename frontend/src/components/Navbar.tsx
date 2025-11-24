@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import type React from "react";
 import { useState } from "react";
 const Links = [
@@ -24,17 +25,27 @@ const Links = [
 ]
 const NavBar: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false)
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md">
+        <nav className="fixed top-0 left-0 w-full z-100000 bg-white/70 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-                <div className="flex items-center gap-2 cursor-pointer select-none">
-                    {/* <img
-                        src="/logo.svg"
+                <div onMouseLeave={() => setIsHovered(false)} onMouseEnter={() => setIsHovered(true)} className="flex items-center gap-2 cursor-pointer select-none realtive">
+                    <img
+                        src="./assets/edge_frame_enhanced.png"
                         alt="Logo"
-                        className="w-8 h-8 object-contain"
-                    /> */}
-                    <p className="text-3xl font-bold">EdgeFrame-<span className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] bg-clip-text text-transparent">Solutions</span></p>
+                        className="w-12 h-12 object-contain"
+                    />
+                    {
+                        isHovered && <AnimatePresence>
+                            <motion.p
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 10 }}
+                                transition={{ duration: 0.5 }}
+                                className="text-3xl font-bold absolute -bottom-5">EdgeFrame-<span className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] bg-clip-text text-transparent">Solutions</span></motion.p>
+                        </AnimatePresence>
+                    }
                 </div>
                 <ul className="hidden lg:flex items-center gap-10 text-gray-700 font-medium">
                     {

@@ -15,7 +15,7 @@ const SectionHeadings: React.FC<Props> = ({ badge, heading, subHeading }) => {
             </div>
 
             <div className="flex flex-col items-center gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                <h3 className="text-6xl font-medium text-center w-full">{heading}</h3>
+                <h3 className="text-6xl font-semibold text-center w-full font-[InstrumentSerif]">{heading}</h3>
                 <p className="font-light text-lg text-stone-500 text-center w-full">{subHeading}</p>
             </div>
         </div>

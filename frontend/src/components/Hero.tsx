@@ -91,7 +91,7 @@ const HeroText = () => {
     );
 };
 
-const DiamondIcon = () => {
+export const DiamondIcon = () => {
     return (
         <svg
             viewBox="0 0 100 100"

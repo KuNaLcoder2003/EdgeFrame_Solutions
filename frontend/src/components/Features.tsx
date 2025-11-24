@@ -99,7 +99,7 @@ const ServiceCard = ({ title, description, tools, index }: any) => {
                     </div>
                 </div>
 
-                {/* Hover overlay */}
+
 
             </div>
         </motion.div>

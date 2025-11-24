@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@layer utilities {
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 7)); }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .white-gradient-left {
+    background: linear-gradient(to right, white 0%, transparent 100%);
+  }
+
+  .white-gradient-right {
+    background: linear-gradient(to left, white 0%, transparent 100%);
+  }
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
