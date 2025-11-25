@@ -6,7 +6,7 @@ import { MarqueeDemoVertical } from "./Marquee";
 const Testimonials: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
 
     return (
-        <div ref={ref} className="mx-auto mt-15">
+        <div ref={ref} className="max-w-7xl mx-auto mt-15">
             <div className="w-full flex flex-col items-center">
                 <SectionHeadings className="" badge="Testimonials" heading={<h3>Hear What
                     <BlurText text="Others" delay={150}
