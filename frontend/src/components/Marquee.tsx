@@ -79,13 +79,12 @@ const ReviewCard = ({
     return (
         <div
             className={cn(
-                "w-36 relative h-42 lg:w-72 cursor-pointer overflow-hidden rounded-xl border p-4 ",
-                // light styles
+                "max-w-52 relative h-42 lg:max-w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
                 "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05] flex flex-col justify-between",
 
             )}
         >
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-col lg:flex-row flex-wrap items-center gap-2">
                 <img className="rounded-lg" width="46" height="46" alt="" src={img} />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium dark:text-white">
@@ -113,30 +112,33 @@ const ReviewCard = ({
 
 export function MarqueeDemoVertical() {
     return (
-        <div className="relative flex h-[650px] w-full flex-row items-center justify-center overflow-hidden mt-15">
-            <Marquee pauseOnHover vertical className="[--duration:20s]">
-                {firstRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
-            <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-                {secondRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
-            <Marquee pauseOnHover vertical className="[--duration:20s]">
-                {firstRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
-            <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-                {secondRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
-            <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
-            <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
-        </div>
+        <>
+            <div className="relative flex h-[650px] w-full flex-row items-center justify-center overflow-hidden mt-15">
+                <Marquee pauseOnHover vertical className="[--duration:20s]">
+                    {firstRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+                <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+                    {secondRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+                <Marquee pauseOnHover vertical className="[--duration:20s]">
+                    {firstRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+                <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+                    {secondRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+                <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
+                <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
+            </div>
+
+        </>
     )
 }
 
