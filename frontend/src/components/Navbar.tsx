@@ -54,7 +54,7 @@ const NavBar: React.FC<Props> = ({ FeaturesRef, BenefitsRef, PricingRef, Testimo
                 <div onMouseLeave={() => setIsHovered(false)} onMouseEnter={() => setIsHovered(true)} className="flex items-center gap-2 cursor-pointer select-none realtive">
                     <img
                         onClick={() => scrollToSection(HeroRef)}
-                        src="./assets/edge_frame_enhanced.png"
+                        src="./edge_frame_enhanced.png"
                         alt="Logo"
                         className="w-12 h-12 object-contain"
                     />
