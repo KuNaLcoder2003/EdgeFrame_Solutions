@@ -1,37 +1,59 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type React from "react";
 import { useState } from "react";
-const Links = [
-    {
-        id: 1,
-        link: "Features"
-    },
-    {
-        id: 2,
-        link: "Benefits"
-    },
-    {
-        id: 3,
-        link: "Testimonials"
-    },
-    {
-        id: 4,
-        link: "FAQs"
-    },
-    {
-        id: 5,
-        link: "Pricing"
-    },
-]
-const NavBar: React.FC = () => {
+
+interface Props {
+    FeaturesRef: React.RefObject<null | HTMLElement>,
+    BenefitsRef: React.RefObject<null | HTMLElement>,
+    ProjectRef: React.RefObject<null | HTMLElement>,
+    TestimonialsRef: React.RefObject<null | HTMLElement>,
+    FaqRef: React.RefObject<null | HTMLElement>,
+    PricingRef: React.RefObject<null | HTMLElement>,
+    HeroRef: React.RefObject<null | HTMLElement>,
+    scrollToSection: any
+}
+const NavBar: React.FC<Props> = ({ FeaturesRef, BenefitsRef, PricingRef, TestimonialsRef, FaqRef, ProjectRef, HeroRef, scrollToSection }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [isHovered, setIsHovered] = useState<boolean>(false)
+    const Links = [
+        {
+            id: 1,
+            link: "Services",
+            ref: FeaturesRef,
+        },
+        {
+            id: 2,
+            link: "Benefits",
+            ref: BenefitsRef,
+        },
+        {
+            id: 3,
+            link: "Testimonials",
+            ref: TestimonialsRef
+        },
+        {
+            id: 4,
+            link: "FAQs",
+            ref: FaqRef
+        },
+        {
+            id: 5,
+            link: "Pricing",
+            ref: PricingRef
+        },
+        {
+            id: 6,
+            link: "Projects",
+            ref: ProjectRef
+        },
+    ]
     return (
         <nav className="fixed top-0 left-0 w-full z-100000 bg-white/70 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
                 <div onMouseLeave={() => setIsHovered(false)} onMouseEnter={() => setIsHovered(true)} className="flex items-center gap-2 cursor-pointer select-none realtive">
                     <img
+                        onClick={() => scrollToSection(HeroRef)}
                         src="./assets/edge_frame_enhanced.png"
                         alt="Logo"
                         className="w-12 h-12 object-contain"
@@ -51,7 +73,9 @@ const NavBar: React.FC = () => {
                     {
                         Links.map(obj => {
                             return (
-                                <li key={`${obj.id}_${obj.link}`} className="cursor-pointer hover:text-black transition">{obj.link}</li>
+                                <li onClick={() => {
+                                    scrollToSection(obj.ref)
+                                }} key={`${obj.id}_${obj.link}`} className="cursor-pointer hover:text-black transition">{obj.link}</li>
                             )
                         })
                     }

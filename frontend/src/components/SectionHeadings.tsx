@@ -6,10 +6,11 @@ interface Props {
     badge: string,
     heading: ReactNode,
     subHeading: ReactNode,
+    className: string
 }
-const SectionHeadings: React.FC<Props> = ({ badge, heading, subHeading }) => {
+const SectionHeadings: React.FC<Props> = ({ badge, heading, subHeading, className }) => {
     return (
-        <div className="flex flex-col items-center mx-auto max-w-6xl gap-4">
+        <div className={`flex flex-col items-center mx-auto max-w-6xl gap-4 ${className?.length > 0 ? className : ""}`}>
             <div className="bg-white shadow-md px-5 py-2 rounded-xl font-medium hover:shadow-lg transition">
                 {badge}
             </div>

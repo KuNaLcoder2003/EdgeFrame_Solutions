@@ -62,12 +62,12 @@ function PricingToggle({ isYearly, setIsYearly }: any) {
     );
 }
 
-const Pricing: React.FC = () => {
+const Pricing: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
     const [isYearly, setIsYearly] = useState(false);
     return (
-        <div className="w-full flex flex-col items-center">
+        <div ref={ref} className="w-full flex flex-col items-center">
             <div>
-                <SectionHeadings badge="Testimonials" heading={<h3>Choose The
+                <SectionHeadings className="" badge="Testimonials" heading={<h3>Choose The
                     <BlurText text="Right" delay={150}
                         animateBy="words"
                         direction="top"

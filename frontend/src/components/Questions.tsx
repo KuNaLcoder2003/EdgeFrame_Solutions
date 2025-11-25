@@ -3,11 +3,11 @@ import BlurText from "./BlurText";
 import SectionHeadings from "./SectionHeadings";
 import Accordion from "./Accordions";
 
-const Faq: React.FC = () => {
+const Faq: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
     return (
-        <div className="max-w-7xl mx-auto mt-20">
+        <div ref={ref} className="max-w-7xl mx-auto mt-30">
             <div className="w-full flex flex-col items-center">
-                <SectionHeadings badge="FAQs" heading={<h3>
+                <SectionHeadings className="" badge="FAQs" heading={<h3>
                     <BlurText text="Answers" delay={150}
                         animateBy="words"
                         direction="top"

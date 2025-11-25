@@ -4,12 +4,14 @@ import BlurText from "./BlurText";
 import { DiamondIcon } from "./Hero";
 import BigNumber from "./BigNumbers";
 import { TimelineDemo } from "./TimeLine";
+import { motion } from "framer-motion";
 
 
-const Benefits: React.FC = () => {
+
+const Benefits: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
     return (
-        <div className="max-w-7xl mx-auto mt-20">
-            <SectionHeadings badge="Benefits"
+        <div ref={ref} className="max-w-7xl mx-auto mt-20">
+            <SectionHeadings className="" badge="Benefits"
                 heading={<h3>See the differnce that <br />Drives {" "}
                     <BlurText
                         text="Growth"
@@ -70,11 +72,18 @@ const BenefitsGrid: React.FC = () => {
     ]
     return (
         <div className="max-w-7xl p-4 mt-4 overflow-hidden">
-            <div className="w-full grid gird-cols-2 lg:grid-cols-3 gap-4">
+            <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -100 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="w-full grid gird-cols-2 lg:grid-cols-3 gap-4">
                 {
                     list.map((item, index) => {
                         return (
-                            <div className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-[200px] flex flex-col">
+                            <motion.div
+                                className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-[200px] flex flex-col">
                                 <div className="flex flex-col items-start gap-4 relative">
 
                                     <BigNumber className="absolute top-0 -right-5" children={`${index + 1}`} />
@@ -92,11 +101,11 @@ const BenefitsGrid: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })
                 }
-            </div>
+            </motion.div>
         </div>
     )
 }

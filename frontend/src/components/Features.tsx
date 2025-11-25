@@ -16,11 +16,11 @@ const handleAnimationComplete = () => {
 };
 
 
-const Features: React.FC = () => {
+const Features: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
 
     return (
-        <div className="-mt-20">
-            <SectionHeadings badge="Services" heading={<h3>Transform Your <BlurText
+        <div ref={ref} className="-mt-20">
+            <SectionHeadings className="" badge="Services" heading={<h3>Transform Your <BlurText
                 text="Idea"
                 delay={150}
                 animateBy="words"

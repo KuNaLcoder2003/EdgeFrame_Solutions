@@ -1,6 +1,7 @@
-import { type ComponentPropsWithoutRef } from "react"
+import { type ComponentPropsWithoutRef, type ReactNode } from "react"
 
 import { cn } from "../util"
+import { Star, StarHalf } from "lucide-react"
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
     /**
@@ -36,22 +37,25 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
 
 const reviews = [
     {
-        name: "Jack",
-        username: "@jack",
+        name: "Adam S",
+        username: "Marketing Specialist",
         body: "I've never seen anything like this before. It's amazing. I love it.",
-        img: "https://avatar.vercel.sh/jack",
+        img: "https://framerusercontent.com/images/biJ9gMhaMo1KzmK80NLpwSBDZvw.png?scale-down-to=512",
+        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
     },
     {
-        name: "Jill",
-        username: "@jill",
+        name: "Lena T",
+        username: "Growth Lead",
         body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://avatar.vercel.sh/jill",
+        img: "https://framerusercontent.com/images/0Slets2YVD0eoXMUgn5Ye0eWgE.png?scale-down-to=1024&width=960&height=1051",
+        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
     },
     {
-        name: "John",
-        username: "@john",
+        name: "Julia P",
+        username: "Project Coordinator",
         body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/john",
+        img: "https://framerusercontent.com/images/0k9XwDOaSB1F8Kx6nfrLUtIeDZI.png?scale-down-to=512&width=1200&height=904",
+        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
     },
 ]
 
@@ -64,23 +68,25 @@ const ReviewCard = ({
     name,
     username,
     body,
+    stars
 }: {
     img: string
     name: string
     username: string
-    body: string
+    body: string,
+    stars: ReactNode[]
 }) => {
     return (
-        <figure
+        <div
             className={cn(
-                "w-36 relative h-64 w-64 cursor-pointer overflow-hidden rounded-xl border p-4 ",
+                "w-36 relative h-42 lg:w-72 cursor-pointer overflow-hidden rounded-xl border p-4 ",
                 // light styles
-                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05] flex flex-col justify-between",
 
             )}
         >
             <div className="flex flex-row items-center gap-2">
-                <img className="rounded-full" width="32" height="32" alt="" src={img} />
+                <img className="rounded-lg" width="46" height="46" alt="" src={img} />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium dark:text-white">
                         {name}
@@ -88,15 +94,26 @@ const ReviewCard = ({
                     <p className="text-xs font-medium dark:text-white/40">{username}</p>
                 </div>
             </div>
-            <blockquote className="mt-2 text-sm">{body}</blockquote>
-        </figure>
+            <div className="flex flex-col items-baseline leading-none">
+                <div className="flex items-center">
+                    {
+                        stars.map((star: ReactNode, index) => {
+                            return (
+                                <div key={index}>{star}</div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="mt-2 text-sm">{body}</div>
+            </div>
+        </div>
     )
 }
 
 
 export function MarqueeDemoVertical() {
     return (
-        <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden mt-15">
+        <div className="relative flex h-[650px] w-full flex-row items-center justify-center overflow-hidden mt-15">
             <Marquee pauseOnHover vertical className="[--duration:20s]">
                 {firstRow.map((review) => (
                     <ReviewCard key={review.username} {...review} />
