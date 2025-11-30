@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
 
                     {/* Contact and Footer Links */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full lg:w-[50%] 3xl:w-[30%]">
-                        <p className="text-sm md:text-base font-medium">kunalindia59@gmail.com</p>
+                        <p className="text-sm md:text-base font-medium font-semibold">1.edgeframesolutions@gmail.com</p>
                         <div className="flex items-center gap-4 text-sm md:text-base">
                             <p className="cursor-pointer hover:underline">Privacy</p>
                             <p className="cursor-pointer hover:underline">Terms</p>

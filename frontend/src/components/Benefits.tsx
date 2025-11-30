@@ -6,8 +6,6 @@ import BigNumber from "./BigNumbers";
 import { TimelineDemo } from "./TimeLine";
 import { motion } from "framer-motion";
 
-
-
 const Benefits: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
     return (
         <div ref={ref} className="max-w-7xl mx-auto mt-20">
@@ -34,40 +32,40 @@ const Benefits: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
 const BenefitsGrid: React.FC = () => {
     const list = [
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Solutions Designed Around Your Business Needs",
+            text: "We take the time to understand your goals, challenges, and vision — ensuring every solution we build is aligned with your long-term growth.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Modern Technology That Keeps You Ahead",
+            text: "We use the latest tools, frameworks, and best practices so your product stays fast, secure, and ready for the future.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Direct Collaboration",
+            text: "No layers, no outsourcing — you work directly with the experts handling your work, ensuring transparency, speed, and accuracy.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Agile Delivery",
+            text: "Our lean team structure allows us to adapt, iterate, and deliver quickly — helping you launch faster without sacrificing quality.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "High Quality",
+            text: "You get top-tier design, development, and support at a fraction of the price big agencies charge — without compromising standards.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "End-to-End Capabilities in One Team",
+            text: "From design and development to automation and support — we provide complete solutions, so you don’t have to manage multiple vendors",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Clear Communication",
+            text: "We keep you informed at every step with updates, shared boards, and transparent progress — no surprises, no guesswork.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Flexible Engagement",
+            text: "Whether you need a one-time project, ongoing support, or continuous improvement — we adapt to your pace and budget.",
         },
         {
-            title: "Optimized Speed",
-            text: "Improve every workflow with tools designed for efficiency and speed.",
+            title: "Long-Term Partnership",
+            text: "We don’t just deliver and disappear. We stay with you to refine, improve, and scale your product as your business evolves.",
         }
     ]
     return (

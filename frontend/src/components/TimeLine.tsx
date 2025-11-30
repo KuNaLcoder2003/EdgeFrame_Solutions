@@ -106,13 +106,14 @@ export function TimelineDemo() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="flex flex-col items-baseline gap-2">
                     <div className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] text-white font-medium shadow-md px-5 py-1 rounded-xl font-medium hover:shadow-lg transition w-[150px]">
-                        {"Data Sources"}
+                        {"Idea Discussion"}
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Connect your data</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">Seamlessly integrate all your key data sources whether it's databases spreadsheets
-                            APIs or third party tools using our intuitive no code connectors. You can unify structured and unstructured data
-                            with minimal setup ensuring every decision starts with a complete picture.</p>
+                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Start With a Call</h3>
+                        <p className="font-light text-md text-stone-500 w-[80%]">SWe begin with a quick discovery call to understand your goals, challenges, and expectations.
+                            This conversation helps us get clarity on what you want to build and why it matters.
+                            You can walk us through your vision, features, and any references you have in mind.
+                            By the end of the call, we’ll have a clear direction and an understanding of how to best help you.</p>
                     </div>
                     <button className="bg-black text-white rounded-lg p-2 px-6 cursor-pointer mt-4">Get Started</button>
                 </motion.div>
@@ -129,13 +130,14 @@ export function TimelineDemo() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="flex flex-col items-baseline gap-2">
                     <div className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] text-white font-medium shadow-md px-5 py-1 rounded-xl font-medium hover:shadow-lg transition w-[150px]">
-                        {"Smart Cleanup"}
+                        {"Project Planning"}
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Clean & Organize Instantly</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">Seamlessly integrate all your key data sources whether it's databases spreadsheets
-                            APIs or third party tools using our intuitive no code connectors. You can unify structured and unstructured data
-                            with minimal setup ensuring every decision starts with a complete picture.</p>
+                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Get a Clear Project Plan</h3>
+                        <p className="font-light text-md text-stone-500 w-[80%]">After the call, we prepare a detailed project plan tailored to your requirements.
+                            This includes the full scope of work, a realistic timeline, milestones, and delivery checkpoints.
+                            We also include transparent pricing with no hidden costs, so you know exactly what you’re getting.
+                            The goal is to ensure alignment before any work starts, giving you complete clarity and confidence.</p>
                     </div>
                     <button className="bg-black text-white rounded-lg p-2 px-6 cursor-pointer mt-4">Get Started</button>
                 </motion.div>
@@ -152,11 +154,14 @@ export function TimelineDemo() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="flex flex-col items-baseline gap-2">
                     <div className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] text-white font-medium shadow-md px-5 py-1 rounded-xl font-medium hover:shadow-lg transition w-[150px]">
-                        {"Clear Insights"}
+                        {"Work Begins"}
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Visualize with Purpose</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">Turn your refined data into clear impactful dashboards. Choose from pre built templates or design custom visualizations that align with your KPIs. Whether you need trends comparisons or deep insights every chart is crafted to drive confident decision making.</p>
+                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Working on your project.</h3>
+                        <p className="font-light text-md text-stone-500 w-[80%]">Once the plan is approved, our team begins executing the project with a structured workflow.
+                            We focus on building a strong foundation, ensuring quality and scalability from the start.
+                            Every phase—design, development, testing—is handled with precision and best practices.
+                            Your project moves forward smoothly with efficient communication and professional execution.</p>
                     </div>
                     <button className="bg-black text-white rounded-lg p-2 px-6 cursor-pointer mt-4">Get Started</button>
                 </motion.div>
@@ -173,11 +178,14 @@ export function TimelineDemo() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="flex flex-col items-baseline gap-2">
                     <div className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] text-white font-medium shadow-md px-5 py-1 rounded-xl font-medium hover:shadow-lg transition w-[150px]">
-                        {"Team Access"}
+                        {"Revisions"}
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Collaborate Across Teams</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">Easily share insights across departments clients or leadership teams. Set granular permissions create workflows and control visibility. With built in comments and version history your entire team stays aligned and data literate with no extra tools needed.</p>
+                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Review & Collaborate</h3>
+                        <p className="font-light text-md text-stone-500 w-[80%]">Throughout the project, we keep you involved with regular progress updates and previews.
+                            You can review work at each stage, share feedback, and request refinements anytime.
+                            This collaborative, iterative process ensures the final result aligns perfectly with your expectations.
+                            We treat your input as part of the development cycle—not as an afterthought.</p>
                     </div>
                     <button className="bg-black text-white rounded-lg p-2 px-6 cursor-pointer mt-4">Get Started</button>
                 </motion.div>
@@ -194,11 +202,14 @@ export function TimelineDemo() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="flex flex-col items-baseline gap-2">
                     <div className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] text-white font-medium shadow-md px-5 py-1 rounded-xl font-medium hover:shadow-lg transition w-[150px]">
-                        {"Live Actions"}
+                        {"Final Delivery"}
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
-                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Act on Your Insights</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">Move from insight to action in real time. Trigger automated reports sync filtered data to other tools or use built in webhooks to activate workflows. With decisions driven by live data your business becomes faster leaner and infinitely more scalable..</p>
+                        <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Delivery & Support</h3>
+                        <p className="font-light text-md text-stone-500 w-[80%]">Once everything is finalized and polished, we deliver clean files, optimized code, and documentation.
+                            We ensure everything is fully functional, tested, and ready for real-world use.
+                            Our team remains available for additional support, onboarding, or minor updates after launch.
+                            You walk away with a dependable final product—and long-term support whenever you need it.</p>
                     </div>
                     <button className="bg-black text-white rounded-lg p-2 px-6 cursor-pointer mt-4">Get Started</button>
                 </motion.div>

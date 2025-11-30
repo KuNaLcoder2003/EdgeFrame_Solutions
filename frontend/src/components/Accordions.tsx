@@ -3,60 +3,44 @@ import { Plus } from "lucide-react";
 
 const faqs = [
     {
-        q: "How does the platform help me make better decisions?",
-        a: "Your answer goes here..."
+        q: "What services does EdgeFrame Solutions offer?",
+        a: "We specialize in Web & Mobile App Development, AI Workflows (using n8n and custom pipelines), LLM Solutions (chatbots and RAG systems), and Computer Vision (verification and OCR). We focus on building stable, scalable software rather than rushed MVPs."
     },
     {
-        q: "Is it easy to integrate with my existing tools?",
-        a: "Your answer goes here..."
+        q: "Can EdgeFrame build custom AI tools for my business?",
+        a: "Yes. We build everything from domain-specific AI copilots to automated workflows. Whether you need an AI that answers customer support queries based on your internal data or a system that automates document processing, we engineer custom solutions to fit your needs."
     },
     {
-        q: "Do I need technical skills to use this platform?",
-        a: "Your answer goes here..."
+        q: "Does EdgeFrame work with Computer Vision?",
+        a: "Yes. We engineer computer vision solutions for object detection, quality checks, and verification tools. We also build OCR (Optical Character Recognition) pipelines to digitize and analyze physical documents automatically."
     },
     {
-        q: "How quickly can I start seeing results?",
-        a: "Your answer goes here..."
-    },
-    {
-        q: "Is my data safe and secure?",
-        a: "Your answer goes here..."
-    },
-    {
-        q: "Can I customize the dashboards and reports?",
-        a: "Your answer goes here..."
+        q: "Can you run AI models locally for privacy?",
+        a: "Yes. We can deploy fully local AI systems that run on your own infrastructure. This ensures that sensitive data never leaves your servers, which is critical for industries with strict compliance or privacy requirements."
     },
 
-    // Right Column
+
     {
-        q: "Does the platform support team collaboration?",
-        a: "Your answer goes here..."
+        q: "What is n8n and how do you use it?",
+        a: "n8n is a workflow automation tool. We use it to connect your different software apps (like your CRM, email, and database) with AI agents. This allows us to automate complex back-office tasks without writing massive amounts of custom maintenance code."
     },
     {
-        q: "What makes this different from other analytics tools?",
-        a: "Your answer goes here..."
+        q: "How long does it take to build an MVP?",
+        a: "Most MVPs (Minimum Viable Products) take between 3 to 8 weeks to launch, depending on complexity. We focus on 'quality engineering,' meaning we might take a few extra days to ensure the system is stable, so it doesn’t crash when you start scaling."
     },
     {
-        q: "Can I track my progress over time?",
-        a: "Your answer goes here..."
+        q: "Do you fix existing apps that are broken or slow?",
+        a: "Yes. We often work with clients facing 'tech debt.' We can audit your current codebase, optimize performance, fix breaking workflows, and refactor the system so it can handle real user growth."
     },
     {
-        q: "Is customer support available if I need help?",
-        a: "Your answer goes here..."
+        q: "How do I start a project with EdgeFrame?",
+        a: "You can reach us directly through our email. We will set up a discovery call to review your technical requirements and discuss how we can engineer a solution that lasts."
     },
-    {
-        q: "Are there limits on data volume or users?",
-        a: "Your answer goes here..."
-    },
-    {
-        q: "Can I cancel my subscription anytime?",
-        a: "Your answer goes here..."
-    }
 ];
 
 // Split into 2 equal columns
-const left = faqs.slice(0, 6);
-const right = faqs.slice(6);
+const left = faqs.slice(0, 4);
+const right = faqs.slice(4);
 
 function AccordionItem({ q, a }: any) {
     const [open, setOpen] = useState(false);
