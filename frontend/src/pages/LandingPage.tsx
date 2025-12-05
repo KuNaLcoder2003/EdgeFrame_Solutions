@@ -2,7 +2,7 @@ import type React from "react";
 import NavBar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import Companies from "../components/Comapnies";
+// import Companies from "../components/Comapnies";
 import Benefits from "../components/Benefits";
 import Testimonials from "../components/Testimonials";
 import Faq from "../components/Questions";
@@ -42,7 +42,7 @@ const LandingPage: React.FC = () => {
                 <Hero ref={HeroRef} />
             </div>
             <Features ref={FeaturesRef} />
-            <Companies />
+            {/* <Companies /> */}
             <Benefits ref={BenefitsRef} />
             <Projects ref={ProjectRef} />
             <Testimonials ref={TestimonialsRef} />
