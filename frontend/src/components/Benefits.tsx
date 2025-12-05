@@ -81,7 +81,7 @@ const BenefitsGrid: React.FC = () => {
                     list.map((item, index) => {
                         return (
                             <motion.div
-                                className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-[200px] flex flex-col">
+                                className="bg-white h-auto rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-[200px] flex flex-col">
                                 <div className="flex flex-col items-start gap-4 relative">
 
                                     <BigNumber className="absolute top-0 -right-5" children={`${index + 1}`} />
