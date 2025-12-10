@@ -1,4 +1,6 @@
 import { useEffect, useState, type ChangeEvent } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 // interface Slot {
 //     time: string;
@@ -13,6 +15,7 @@ interface FormState {
     country: string;
     projectReq: string;
     day: string;
+    slot: string
 }
 
 
@@ -21,7 +24,7 @@ interface Country {
     name: string
 }
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function BookConsultation() {
     const [form, setForm] = useState<FormState>({
@@ -32,24 +35,22 @@ export default function BookConsultation() {
         country: "",
         projectReq: "",
         day: "",
+        slot: "",
     });
+
+    const navigate = useNavigate();
     const slots_arr = ["11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00", "14:00 - 15:00", "16:00 - 17:00", "18:00 - 19:00", "20:00 - 21:00", "21:00 - 22:00", "22:00 - 23:00", "23:00 - 00:00", "00:00 - 1:00", "1:00 - 2:00"]
 
-    const [slots, setSlots] = useState<String[]>(slots_arr);
+    const [slots, setSlots] = useState<String[]>([]);
     const [countries, setCountries] = useState<Country[]>([]);
 
-
     const getSlotsAndCountries = async () => {
-        setSlots(slots_arr);
+
         const response = await fetch(`${BACKEND_URL}/details`);
         const data = await response.json();
         if (!data || !response) {
-            setSlots([]);
-
 
         } else if (!data.valid) {
-            setSlots([]);
-
 
         } else {
 
@@ -60,36 +61,50 @@ export default function BookConsultation() {
         getSlotsAndCountries();
     }, [])
 
-    // const [slots, setSlots] = useState<Slot[]>([]);
-
-    // Example slot data (Replace with API call)
-    // const slotData: Record<string, Slot[]> = {
-    //     Monday: [
-    //         { time: "10:00 AM", booked: false },
-    //         { time: "1:00 PM", booked: true },
-    //         { time: "4:00 PM", booked: false },
-    //     ],
-    //     Tuesday: [
-    //         { time: "11:00 AM", booked: false },
-    //         { time: "3:00 PM", booked: false },
-    //     ],
-    //     Wednesday: [
-    //         { time: "9:00 AM", booked: true },
-    //         { time: "2:00 PM", booked: true },
-    //         { time: "5:00 PM", booked: false },
-    //     ],
-    // };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
-
-
     };
+
+    const handleSubmit = async () => {
+        try {
+
+            const body = JSON.stringify({
+                name: form.name,
+                email: form.email,
+                date: form.day,
+                mobile: form.mobile,
+                country: form.country,
+                organisation: form.org,
+                project_req: form.projectReq,
+                slot: form.slot
+            })
+
+            console.log("body is ", body)
+
+            const response = await fetch(BACKEND_URL + "/form", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: body
+            })
+            const data = await response.json()
+            if (data.valid) {
+                navigate("/thankyou")
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error("Something went worng")
+        }
+    }
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row bg-gray-50 p-10 gap-12">
-            {/* LEFT SIDE TEXT */}
+            <Toaster />
+
             <div className="flex-1 flex flex-col justify-center">
                 <h1 className="text-6xl font-bold text-gray-900 leading-tight font-[InstrumentSerif]">
                     Book a <span className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] bg-clip-text text-transparent font-thin">Consultation</span> with <br /> Edge<span className="bg-gradient-to-br from-[#A58FFF] via-[#3300FF] to-[#A58FFF] bg-clip-text text-transparent font-thin">Frame</span> Solutions
@@ -206,7 +221,7 @@ export default function BookConsultation() {
                             name="day"
                             placeholder="Select Date"
                             value={form.day}
-                            onChange={handleChange}
+                            onChange={(e) => { handleChange(e); setSlots(slots_arr); }}
                             className="w-full mt-2 p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500"
                         />
                     </div>
@@ -216,6 +231,10 @@ export default function BookConsultation() {
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                                 {slots.map((slot: any, index: number) => (
                                     <div
+                                        onClick={() => setForm({
+                                            ...form,
+                                            slot: slot
+                                        })}
                                         key={index}
                                         className={`p-3 rounded-xl text-center text-sm font-semibold cursor-pointer bg-green-200 text-green-700 hover:bg-green-300`}
                                     >
@@ -228,7 +247,7 @@ export default function BookConsultation() {
 
                 </div>
 
-                <button className="w-full mt-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 text-lg">
+                <button onClick={handleSubmit} className="w-full mt-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 text-lg">
                     Continue →
                 </button>
             </div>
