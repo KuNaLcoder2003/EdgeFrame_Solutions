@@ -391,7 +391,7 @@ app.post('/approve/:slotId/:userId', async (req: express.Request, res: express.R
                 </tr>
                 <tr>
                   <td style="padding:10px 0;color:#374151;font-size:15px;font-weight:600;">Meeting ID:</td>
-                  <td style="padding:10px 0;color:#374151;font-size:15px;">${response.booking.meeting_id}</td>
+                  <td style="padding:10px 0;color:#374151;font-size:15px;">${response.booking.id}</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 0;color:#374151;font-size:15px;font-weight:600;">Password:</td>
@@ -487,7 +487,6 @@ app.get('/bookingRequests', async (req: express.Request, res: express.Response) 
                         date: obj.date,
                         name: user.name
                     }
-
                 }
             })
             return temp;
