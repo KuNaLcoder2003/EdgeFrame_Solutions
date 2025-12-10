@@ -22,6 +22,7 @@ model users {
   country String @db.VarChar(255)
   project_requirement String
   bookings bookings[]
+  slots slots[]
 }
 
 model bookings {
@@ -42,6 +43,8 @@ model slots {
   date String @db.VarChar(255)
   booked Boolean @default(false)
   slot String
+  user_id String @default("")
+  user users @relation(fields: [user_id] , references: [id])
   booking bookings?
 }
 

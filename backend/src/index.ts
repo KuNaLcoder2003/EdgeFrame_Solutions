@@ -190,7 +190,8 @@ app.post('/form', async (req: express.Request, res: express.Response) => {
                 data: {
                     booked: true,
                     slot: slot,
-                    date: date
+                    date: date,
+                    user_id: user.id
                 }
             })
             return { user, new_slot }
@@ -229,7 +230,7 @@ app.post('/form', async (req: express.Request, res: express.Response) => {
           <!-- Body -->
           <tr>
             <td style="padding:28px 30px;color:#1f2937;font-size:16px;line-height:1.6;">
-              <p style="margin:0 0 16px 0;">Hi {{name}},</p>
+              <p style="margin:0 0 16px 0;">Hi ${name},</p>
 
               <p style="margin:0 0 16px 0;">
                 We’ve received your booking request successfully. 🎉  
@@ -445,9 +446,63 @@ app.post('/approve/:slotId/:userId', async (req: express.Request, res: express.R
             valid: true
         })
     } catch (error) {
-
+        res.status(500).json({
+            message: "Somthing went wrong",
+            valid: true
+        })
     }
 })
+app.get('/bookingRequests', async (req: express.Request, res: express.Response) => {
+    try {
+        const code = req.headers.authorization;
+        if (!code || code != "MaraMariEdgeFrameSolutions") {
+            res.status(403).json({
+                message: "Invalid code",
+                valid: false
+            })
+            return
+        }
+
+
+
+        const users = await prisma.users.findMany({})
+        const slots_againts_users = await prisma.slots.findMany({
+            where: {
+                booked: true,
+                user_id: {
+                    in: users.map((obj) => { return obj.id })
+                }
+            },
+        })
+        const users_with_slots = users.forEach(user => {
+            let temp = {};
+            slots_againts_users.forEach((obj) => {
+
+                if (obj.user_id == user.id) {
+                    temp = {
+                        users_id: user.id,
+                        email: user.email,
+                        slot: obj.slot,
+                        mobile: user.mobile,
+                        date: obj.date,
+                        name: user.name
+                    }
+
+                }
+            })
+            return temp;
+        })
+        res.status(200).json({
+            requests: users_with_slots
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong"
+        })
+    }
+})
+
 app.listen(3000, () => {
     console.log("App Started")
 })
