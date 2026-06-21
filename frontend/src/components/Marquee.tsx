@@ -1,147 +1,131 @@
-import { type ComponentPropsWithoutRef, type ReactNode } from "react"
-
+import { type ComponentPropsWithoutRef } from "react"
 import { cn } from "../util"
-import { Star, StarHalf } from "lucide-react"
+import { Star, StarHalf, Quote } from "lucide-react"
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
-    /**
-     * Optional CSS class name to apply custom styles
-     */
     className?: string
-    /**
-     * Whether to reverse the animation direction
-     * @default false
-     */
     reverse?: boolean
-    /**
-     * Whether to pause the animation on hover
-     * @default false
-     */
     pauseOnHover?: boolean
-    /**
-     * Content to be displayed in the marquee
-     */
     children: React.ReactNode
-    /**
-     * Whether to animate vertically instead of horizontally
-     * @default false
-     */
     vertical?: boolean
-    /**
-     * Number of times to repeat the content
-     * @default 4
-     */
     repeat?: number
 }
 
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const reviews = [
     {
-        name: "Adam S",
+        name: "Adam S.",
         username: "Marketing Specialist",
-        body: "I've never seen anything like this before. It's amazing. I love it.",
+        body: "Working with EdgeFrame was genuinely seamless. They took our vague brief and turned it into a product we're proud to show clients.",
         img: "https://framerusercontent.com/images/biJ9gMhaMo1KzmK80NLpwSBDZvw.png?scale-down-to=512",
-        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
+        rating: 4.5,
     },
     {
-        name: "Lena T",
+        name: "Lena T.",
         username: "Growth Lead",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://framerusercontent.com/images/0Slets2YVD0eoXMUgn5Ye0eWgE.png?scale-down-to=1024&width=960&height=1051",
-        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
+        body: "The attention to detail was unlike anything I've experienced from a dev agency. Fast, communicative, and the output was polished.",
+        img: "https://framerusercontent.com/images/0Slets2YVD0eoXMUgn5Ye0eWgE.png?scale-down-to=512",
+        rating: 4.5,
     },
     {
-        name: "Julia P",
+        name: "Julia P.",
         username: "Project Coordinator",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://framerusercontent.com/images/0k9XwDOaSB1F8Kx6nfrLUtIeDZI.png?scale-down-to=512&width=1200&height=904",
-        stars: [<Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <Star color="white" fill="#3300FF" />, <StarHalf color="white" fill="#3300FF" />]
+        body: "We had a tight deadline and EdgeFrame delivered ahead of schedule. The quality didn't suffer — it actually exceeded our expectations.",
+        img: "https://framerusercontent.com/images/0k9XwDOaSB1F8Kx6nfrLUtIeDZI.png?scale-down-to=512",
+        rating: 5,
+    },
+    {
+        name: "Marcus R.",
+        username: "Founder, SaaS Startup",
+        body: "They rebuilt our entire frontend from scratch in three weeks. The performance gains alone paid for the project within a month.",
+        img: "https://framerusercontent.com/images/biJ9gMhaMo1KzmK80NLpwSBDZvw.png?scale-down-to=512",
+        rating: 5,
+    },
+    {
+        name: "Priya N.",
+        username: "Head of Product",
+        body: "I appreciated how they pushed back on ideas that wouldn't work and offered better alternatives. True partners, not just executors.",
+        img: "https://framerusercontent.com/images/0Slets2YVD0eoXMUgn5Ye0eWgE.png?scale-down-to=512",
+        rating: 4.5,
+    },
+    {
+        name: "Chris M.",
+        username: "E-Commerce Director",
+        body: "Our conversion rate went up 28% after the redesign. EdgeFrame understood the brief at a business level, not just a design level.",
+        img: "https://framerusercontent.com/images/0k9XwDOaSB1F8Kx6nfrLUtIeDZI.png?scale-down-to=512",
+        rating: 5,
     },
 ]
 
-const firstRow = reviews.slice(0, reviews.length / 2)
-const secondRow = reviews.slice(reviews.length / 2)
+// ─── Star renderer ────────────────────────────────────────────────────────────
 
+function StarRating({ rating }: { rating: number }) {
+    const full = Math.floor(rating)
+    const half = rating % 1 >= 0.5
+    return (
+        <div className="flex items-center gap-0.5">
+            {Array.from({ length: full }).map((_, i) => (
+                <Star key={i} className="h-3 w-3 fill-[#3300FF] text-[#3300FF]" />
+            ))}
+            {half && <StarHalf className="h-3 w-3 fill-[#3300FF] text-[#3300FF]" />}
+        </div>
+    )
+}
+
+// ─── Review Card ──────────────────────────────────────────────────────────────
 
 const ReviewCard = ({
     img,
     name,
     username,
     body,
-    stars
+    rating,
 }: {
     img: string
     name: string
     username: string
-    body: string,
-    stars: ReactNode[]
+    body: string
+    rating: number
 }) => {
     return (
-        <div
-            className={cn(
-                "max-w-52 relative h-42 lg:max-w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
-                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05] flex flex-col justify-between",
+        <div className={cn(
+            "relative w-64 cursor-pointer overflow-hidden rounded-2xl border border-neutral-100 bg-white p-5",
+            "shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-shadow hover:shadow-[0_4px_24px_rgba(0,0,0,0.1)]",
+            "flex flex-col gap-4"
+        )}>
+            {/* Quote icon */}
+            <Quote className="h-5 w-5 text-[#A58FFF] opacity-60" />
 
-            )}
-        >
-            <div className="flex flex-col lg:flex-row flex-wrap items-center gap-2">
-                <img className="rounded-lg" width="46" height="46" alt="" src={img} />
-                <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium dark:text-white">
-                        {name}
-                    </figcaption>
-                    <p className="text-xs font-medium dark:text-white/40">{username}</p>
+            {/* Body */}
+            <p className="text-[13px] font-light text-stone-600 leading-relaxed flex-1">
+                {body}
+            </p>
+
+            {/* Footer: avatar + name + stars */}
+            <div className="flex items-center gap-3 pt-1 border-t border-neutral-100">
+                <img
+                    className="h-9 w-9 rounded-xl object-cover flex-shrink-0"
+                    src={img}
+                    alt={name}
+                    width={36}
+                    height={36}
+                />
+                <div className="min-w-0">
+                    <p className="text-[13px] font-medium text-neutral-900 truncate">{name}</p>
+                    <p className="text-[11px] font-light text-stone-400 truncate">{username}</p>
                 </div>
-            </div>
-            <div className="flex flex-col items-baseline leading-none">
-                <div className="flex items-center">
-                    {
-                        stars.map((star: ReactNode, index) => {
-                            return (
-                                <div key={index}>{star}</div>
-                            )
-                        })
-                    }
+                <div className="ml-auto flex-shrink-0">
+                    <StarRating rating={rating} />
                 </div>
-                <div className="mt-2 text-sm">{body}</div>
             </div>
         </div>
     )
 }
 
-
-export function MarqueeDemoVertical() {
-    return (
-        <>
-            <div className="relative flex h-[650px] w-full flex-row items-center justify-center overflow-hidden mt-15">
-                <Marquee pauseOnHover vertical className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee pauseOnHover vertical className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
-                <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
-            </div>
-
-        </>
-    )
-}
-
+// ─── Marquee primitive ────────────────────────────────────────────────────────
 
 export function Marquee({
     className,
@@ -157,28 +141,66 @@ export function Marquee({
             {...props}
             className={cn(
                 "group flex [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1rem]",
-                {
-                    "flex-row": !vertical,
-                    "flex-col": vertical,
-                },
+                { "flex-row": !vertical, "flex-col": vertical },
                 className
             )}
         >
-            {Array(repeat)
-                .fill(0)
-                .map((_, i) => (
-                    <div
-                        key={i}
-                        className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+            {Array(repeat).fill(0).map((_, i) => (
+                <div
+                    key={i}
+                    className={cn(
+                        "flex shrink-0 justify-around [gap:var(--gap)]",
+                        {
                             "animate-marquee flex-row": !vertical,
                             "animate-marquee-vertical flex-col": vertical,
                             "group-hover:[animation-play-state:paused]": pauseOnHover,
                             "[animation-direction:reverse]": reverse,
-                        })}
-                    >
-                        {children}
-                    </div>
+                        }
+                    )}
+                >
+                    {children}
+                </div>
+            ))}
+        </div>
+    )
+}
+
+// ─── Marquee Demo ─────────────────────────────────────────────────────────────
+
+// Split into 3 columns for desktop, fewer on mobile
+const col1 = [reviews[0], reviews[3]]
+const col2 = [reviews[1], reviews[4]]
+const col3 = [reviews[2], reviews[5]]
+
+export function MarqueeDemoVertical() {
+    return (
+        <div className="relative flex h-[520px] w-full flex-row items-center justify-center gap-3 overflow-hidden mt-10">
+            {/* col 1 — always visible */}
+            <Marquee pauseOnHover vertical className="[--duration:22s]">
+                {col1.map((review) => (
+                    <ReviewCard key={review.username} {...review} />
                 ))}
+            </Marquee>
+
+            {/* col 2 — always visible */}
+            <Marquee reverse pauseOnHover vertical className="[--duration:26s]">
+                {col2.map((review) => (
+                    <ReviewCard key={review.username} {...review} />
+                ))}
+            </Marquee>
+
+            {/* col 3 — hidden on mobile, visible md+ */}
+            <div className="hidden md:contents">
+                <Marquee pauseOnHover vertical className="[--duration:20s]">
+                    {col3.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+            </div>
+
+            {/* Fade edges */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </div>
     )
 }
