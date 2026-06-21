@@ -18,59 +18,156 @@ type ProjectItem = {
 const projects: ProjectItem[] = [
     {
         id: 1,
-        title: "NovaMesh Dashboard",
-        category: "Web Application",
+        title: "Import Management SaaS",
+        category: "Full-Stack SaaS",
         description:
-            "A real-time analytics platform built for an IoT startup — unified device telemetry, alert routing, and live metric visualization across 50k+ endpoints.",
-        imageSrc: "https://framerusercontent.com/images/d29CnpfyTPjz2QD93CqWDy3lW0.png",
-        year: "2024",
-        tags: ["React", "Node.js", "WebSocket", "PostgreSQL"],
+            "Helped an import-export company replace fragmented spreadsheets and manual processes with a centralized platform for shipment tracking, customs compliance, and document management. Reduced manual data entry by nearly 80% through AI-powered document extraction and automated trade document generation.",
+        imageSrc: "./assets/Import.png",
+        year: "2026",
+        tags: [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "PostgreSQL",
+            "Prisma",
+            "Cloudinary",
+            "Claude AI",
+        ],
         href: "#",
     },
+
     {
         id: 2,
-        title: "Veritas Design System",
-        category: "Design System",
+        title: "Gmail Copilot",
+        category: "AI Agent",
         description:
-            "End-to-end design system for a fintech company — component library, token architecture, and documentation site used across 8 product teams.",
-        imageSrc: "https://framerusercontent.com/images/QyxSfWbqpXIxJThv4PN3W09Xuoo.png",
-        year: "2024",
-        tags: ["Figma", "Storybook", "TypeScript", "Tailwind"],
+            "Enabled professionals to manage high email volumes more efficiently by automatically summarizing conversations, extracting action items, categorizing messages, and generating AI-powered draft replies. Reduced time spent on repetitive inbox management while improving response speed.",
+        imageSrc: "./assets/Project-1.jpeg",
+        year: "2026",
+        tags: [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "OpenAI",
+            "Gmail API",
+            "PostgreSQL",
+        ],
         href: "#",
     },
+
     {
         id: 3,
-        title: "Luminary E-Commerce",
-        category: "Full-Stack Platform",
+        title: "URL Shortener & Analytics Platform",
+        category: "Distributed Systems",
         description:
-            "High-conversion storefront for a luxury skincare brand — headless commerce with personalisation engine and sub-second load times.",
-        imageSrc: "https://framerusercontent.com/images/NG72MSdIwX2XKu3AGU6z09ZsTqE.png",
-        year: "2023",
-        tags: ["Next.js", "Shopify", "Prisma", "Redis"],
+            "Provided businesses with reliable link management and detailed visitor analytics, helping marketing teams track campaign performance, understand audience behavior, and make data-driven decisions through real-time insights.",
+        imageSrc: "./assets/URL.png",
+        year: "2026",
+        tags: [
+            "Next.js",
+            "Node.js",
+            "PostgreSQL",
+            "Redis",
+            "BullMQ",
+            "Docker",
+            "AWS",
+        ],
         href: "#",
     },
+
     {
         id: 4,
-        title: "Orbis Mobile App",
-        category: "Mobile",
+        title: "KYC OCR & Verification System",
+        category: "AI-Powered Platform",
         description:
-            "Cross-platform community app for a wellness company — geo-based event discovery, live audio rooms, and a subscription billing flow.",
-        imageSrc: "https://framerusercontent.com/images/QOOvVUDrsCHb6NNj1HE5qVf7pRU.png",
-        year: "2023",
-        tags: ["React Native", "Expo", "Supabase", "Stripe"],
+            "Reduced document verification effort for financial institutions by automating Aadhaar and PAN data extraction. Accelerated customer onboarding workflows, minimized human errors, and improved operational efficiency across KYC verification processes.",
+        imageSrc: "./assets/OCR.png",
+        year: "2025",
+        tags: [
+            "Python",
+            "OpenCV",
+            "EasyOCR",
+            "Tesseract",
+            "OCR",
+            "AI",
+        ],
         href: "#",
     },
+
     {
         id: 5,
-        title: "Kestrel CMS",
-        category: "SaaS",
+        title: "Learning Management System",
+        category: "EdTech Platform",
         description:
-            "Multi-tenant headless CMS for a media company — structured content, role-based access, and live preview API consumed by 12 editorial teams.",
-        imageSrc: "https://framerusercontent.com/images/d29CnpfyTPjz2QD93CqWDy3lW0.png",
-        year: "2022",
-        tags: ["Express", "MongoDB", "GraphQL", "AWS"],
+            "Helped educators manage classes, assessments, content delivery, and student interactions from a single platform. Simplified administrative workflows while improving accessibility and engagement for more than 200 students.",
+        imageSrc: "./assets/Edtech.png",
+        year: "2025",
+        tags: [
+            "React",
+            "Tailwind",
+            "Node.js",
+            "Express",
+            "Prisma",
+            "PostgreSQL",
+        ],
         href: "#",
     },
+
+    {
+        id: 6,
+        title: "QC Portal & Assignment Engine",
+        category: "Enterprise Software",
+        description:
+            "Improved operational efficiency for quality-control teams by automating task allocation and preventing duplicate processing. Increased team productivity and ensured faster turnaround times for customer verification workflows.",
+        imageSrc: "./assets/QC.png",
+        year: "2025",
+        tags: [
+            "React",
+            "Tailwind",
+            "Node.js",
+            "MySQL",
+            "TypeScript",
+        ],
+        href: "#",
+    },
+
+    {
+        id: 7,
+        title: "Notes Sharing Platform",
+        category: "Full-Stack Application",
+        description:
+            "Enabled students to securely upload, organize, and share study materials in one place. Improved collaboration and resource accessibility while eliminating dependence on scattered file-sharing channels.",
+        imageSrc: "./assets/Notes.png",
+        year: "2024",
+        tags: [
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js",
+            "Cloudinary",
+            "JWT",
+        ],
+        href: "#",
+    },
+
+    {
+        id: 8,
+        title: "Personal Finance Tracker",
+        category: "Web Application",
+        description:
+            "Helped users gain better visibility into their spending habits through real-time expense tracking, budgeting tools, and financial insights, making personal finance management simpler and more effective.",
+        imageSrc: "./assets/Finance.png",
+        year: "2024",
+        tags: [
+            "React",
+            "Redux",
+            "Firebase",
+            "Authentication",
+        ],
+        href: "#",
+    },
+
+
 ];
 
 function wrapIndex(n: number, len: number) {
