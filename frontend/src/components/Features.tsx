@@ -147,7 +147,7 @@ export function DesignServices() {
             icon: Pen,
             title: "Illustrations",
             description: "Custom visuals that add personality and enhance communication, whether for digital or print media.",
-            src: "./assets/Branding.png",
+            src: "./assets/Illustration.png",
             tools: [<SiAdobeillustrator />, <FiFramer />, <FiFigma />, <DiPhotoshop />]
         }
     ];
