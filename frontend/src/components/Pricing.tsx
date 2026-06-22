@@ -3,6 +3,7 @@ import type React from "react";
 // import { motion } from 'framer-motion';
 import SectionHeadings from "./SectionHeadings";
 import BlurText from "./BlurText";
+import { useNavigate } from "react-router-dom";
 // import { Check } from "lucide-react";
 
 // function PricingToggle({ isYearly, setIsYearly }: any) {
@@ -63,6 +64,7 @@ import BlurText from "./BlurText";
 // }
 
 const Pricing: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
+    const navigte = useNavigate()
     // const [isYearly, setIsYearly] = useState(false);
     return (
         <div ref={ref} className="w-full flex flex-col items-center mb-12">
@@ -88,7 +90,7 @@ const Pricing: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
                     </p>
 
                     <button
-                        onClick={() => window.open("https://calendly.com/your-link", "_blank")}
+                        onClick={() => navigte('/book')}
                         className="bg-black text-white w-full py-4 rounded-xl font-medium hover:bg-gray-800 transition-all"
                     >
                         Book a Call →

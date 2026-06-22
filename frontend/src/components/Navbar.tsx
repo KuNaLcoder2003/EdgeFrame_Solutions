@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     FeaturesRef: React.RefObject<null | HTMLElement>,
@@ -15,6 +16,7 @@ interface Props {
 const NavBar: React.FC<Props> = ({ FeaturesRef, BenefitsRef, PricingRef, TestimonialsRef, FaqRef, ProjectRef, HeroRef, scrollToSection }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [isHovered, setIsHovered] = useState<boolean>(false)
+    const navigate = useNavigate()
     const Links = [
         {
             id: 1,
@@ -80,7 +82,7 @@ const NavBar: React.FC<Props> = ({ FeaturesRef, BenefitsRef, PricingRef, Testimo
                         })
                     }
                 </ul>
-                <button className="hidden lg:block bg-white shadow-md px-5 py-2 rounded-xl font-medium hover:shadow-lg transition">
+                <button onClick={() => navigate('/book')} className="hidden lg:block bg-white shadow-md px-5 py-2 rounded-xl font-medium hover:shadow-lg transition">
                     Book a Call
                 </button>
                 <div className="lg:hidden flex items-center">

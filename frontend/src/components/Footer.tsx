@@ -2,7 +2,9 @@
 import { LinkedinIcon, MailIcon } from 'lucide-react'
 import React from 'react'
 import { FaTelegram } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 const Footer: React.FC = () => {
+    const navigate = useNavigate()
     // const styles1 = {
     //     top: 0,
     //     left: 0,
@@ -57,6 +59,7 @@ const Footer: React.FC = () => {
                     <div className="cursor-pointer w-full sm:w-1/2 md:w-1/3 3xl:w-[20%] p-2 bg-gradient-to-b from-stone-300 to-stone-400 rounded-[47.86px] shadow-[0_130px_35px_rgba(79,70,229,0.01),0_75px_36px_rgba(79,70,229,0.03),0_42px_30px_rgba(79,70,229,0.08),0_18px_22px_rgba(79,70,229,0.14),0_4px_12px_rgba(79,70,229,0.16)]">
                         <div className="p-2 font-bold text-lg text-center bg-gradient-to-b from-stone-200 to-stone-300 rounded-[54.69px] border border-[rgba(255,255,255,0.04)]">
                             <p
+                                onClick={() => navigate('/book')}
                                 style={{
                                     backgroundImage:
                                         "radial-gradient(98.0344% 98.0344% at 1.35135% 3.04878%, rgb(49, 46, 129) 0%, rgb(3, 7, 18) 100%)",

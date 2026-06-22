@@ -1,6 +1,7 @@
 import type React from "react";
 import { motion } from "framer-motion";
 import { Star, StarHalf } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
     return (
@@ -30,6 +31,7 @@ const Hero: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
 };
 
 const HeroText = () => {
+    const navigte = useNavigate()
     return (
         <div className="flex flex-col items-baseline gap-8 w-full">
 
@@ -99,7 +101,7 @@ const HeroText = () => {
                 viewport={{ once: false }}
                 transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
                 className="flex items-center gap-4">
-                <button className="bg-black text-white rounded-lg p-3 px-10 cursor-pointer">Book a call</button>
+                <button onClick={() => navigte('/book')} className="bg-black text-white rounded-lg p-3 px-10 cursor-pointer">Book a call</button>
                 <button className="bg-gray-100 text-black rounded-lg p-3 px-10 cursor-pointer">See Pricing</button>
             </motion.div>
 
