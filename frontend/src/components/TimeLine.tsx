@@ -110,7 +110,7 @@ export function TimelineDemo() {
                     </div>
                     <div className="flex flex-col items-baseline gap-2 w-full p-1 lg:p-0 lg:min-w-3xl max-w-4xl">
                         <h3 className="text-xl font-semibold w-full font-[InstrumentSerif]">Start With a Call</h3>
-                        <p className="font-light text-md text-stone-500 w-[80%]">SWe begin with a quick discovery call to understand your goals, challenges, and expectations.
+                        <p className="font-light text-md text-stone-500 w-[80%]">We begin with a quick discovery call to understand your goals, challenges, and expectations.
                             This conversation helps us get clarity on what you want to build and why it matters.
                             You can walk us through your vision, features, and any references you have in mind.
                             By the end of the call, we’ll have a clear direction and an understanding of how to best help you.</p>
