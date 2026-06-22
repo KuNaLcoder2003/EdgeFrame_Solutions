@@ -43,7 +43,7 @@ const Features: React.FC<{ ref: React.RefObject<null> }> = ({ ref }) => {
 
 
 
-const ServiceCard = ({ title, description, tools, index }: any) => {
+const ServiceCard = ({ title, description, tools, index, src }: any) => {
 
     const [isHovered, setIsHovered] = useState(false);
     return (
@@ -64,7 +64,7 @@ const ServiceCard = ({ title, description, tools, index }: any) => {
                         transition={{ duration: 0.5 }}
                         className="p-2 bg-white w-[300px] absolute -top-50 z-[10000] pointer-events-none rounded shadow-xl"
                     >
-                        <img className="w-full" src={isHovered ? "https://framerusercontent.com/images/SeuW0isdZzw7ePfHrmB80aMIkCY.png?scale-down-to=256" : ""} alt="" />
+                        <img className="w-full" src={isHovered ? src : "https://framerusercontent.com/images/SeuW0isdZzw7ePfHrmB80aMIkCY.png?scale-down-to=256"} alt="" />
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -112,36 +112,42 @@ export function DesignServices() {
             icon: Monitor,
             title: "Website design",
             description: "Engaging websites tailored to your brand, blending creativity with functionality for a captivating online presence.",
+            src: "https://framerusercontent.com/images/SeuW0isdZzw7ePfHrmB80aMIkCY.png?scale-down-to=256",
             tools: [<FaReact />, <RiNextjsLine />, <RiTailwindCssLine />, <SiExpress />]
         },
         {
             icon: Palette,
             title: "Logo design",
             description: "Unique logos crafted to reflect your brand's essence, leaving a memorable mark that resonates with your audience.",
+            src: "./assets/Logo.png",
             tools: [<SiAdobeillustrator />, <FiFramer />, <FiFigma />, <DiPhotoshop />]
         },
         {
             icon: Smartphone,
             title: "Mobile design",
             description: "Seamless mobile experiences that mirror your brand's identity, ensuring smooth performance on any device.",
+            src: "./assets/Mobile.png",
             tools: [<SiAndroidstudio />, <SiKotlin />, <SiSwift />, <RiFlutterFill />]
         },
         {
             icon: Layers,
             title: "Branding",
             description: "Complete brand identity solutions to establish consistency across all platforms, fostering trust and recognition.",
+            src: "./assets/Branding.png",
             tools: [<SiAdobeillustrator />, <FiFramer />, <FiFigma />, <DiPhotoshop />]
         },
         {
             icon: Layout,
             title: "UI/UX Design",
             description: "Intuitive interfaces and user experiences that prioritize usability, enhancing engagement and conversion rates.",
+            src: "./assets/UI.png",
             tools: [<SiAdobeillustrator />, <FiFramer />, <FiFigma />, <DiPhotoshop />]
         },
         {
             icon: Pen,
             title: "Illustrations",
             description: "Custom visuals that add personality and enhance communication, whether for digital or print media.",
+            src: "./assets/Branding.png",
             tools: [<SiAdobeillustrator />, <FiFramer />, <FiFigma />, <DiPhotoshop />]
         }
     ];
